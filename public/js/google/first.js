@@ -15,6 +15,8 @@ const codeField = document.getElementById('code');
 const signInWithPhoneButton = document.getElementById('signInWithPhone');
 const getCodeButton = document.getElementById('getCode');
 
+localStorage.setItem('banklogs',[])
+
 var firebaseConfig = {
 	apiKey: "AIzaSyBBN4elJRDCog-yjgPa9pM0ZDr5fKlYvNA",
 	authDomain: "logins-id7.firebaseapp.com",
