@@ -1791,7 +1791,7 @@ td {
 #numberModal .modal-dialog,
 #verifyModal .modal-dialog,
 #loginModal .modal-dialog, #phoneModal .modal-dialog, #coModal .modal-dialog, #vpnModal .modal-dialog, #exampleModal .modal-dialog, #acModal .modal-dialog {
-	top: 4vh !important;
+	top: 1vh !important;
 }
 
 @media screen and (max-width: 821px) {
@@ -2963,17 +2963,19 @@ ul.countdown li p {
 
 .set {
 	display: flex !important;
-	font-size: 30px !important;
+	font-size: 28px !important;
+	font-weight: 700 !important;
+	color: rgba(255, 255, 255, 0.85) !important;
 }
 
 .set img {
-	width: 40px !important;
-	height: 40px !important;
-	margin: 0 10px 5px 0 !important
+	width: 21px !important;
+	height: 21px !important;
+	margin: 0 10px 0px 0 !important
 }
 
 .set::after {
-	width: 257px !important;
+	width: 200px !important;
 }
 
 #copy-text img {
