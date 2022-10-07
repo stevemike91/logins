@@ -142,7 +142,7 @@ auth.onAuthStateChanged(user => {
 			View Profile
 			<img src="img/partners/pho.jpg">
 		`;
-		pros.innerHTML = `Bank log(s) will be sent to <span>${user.phoneNumber}</span> via sms as a dynamic link that expires after 7 hours `;
+		pros.innerHTML = `Pro tip: Link an <span>email / phone number</span> to get bank logs sent via <span>mail / sms</span>`;
 		emailBtn.innerText = 'Link Email';
 		emailBtn.disabled = false;
 		emailImg.src = 'img/partners/emails.png';
@@ -174,7 +174,7 @@ auth.onAuthStateChanged(user => {
 			View Profile
 			<img src="img/partners/anonymous.png">
 		`;
-		pros.innerHTML = `Link an <span>email / phone number</span> to get bank logs sent via <span>mail / sms</span>`;
+		pros.innerHTML = `Pro tip: Link an <span>email / phone number</span> to get bank logs sent via <span>mail / sms</span>`;
 		emailBtn.innerText = 'Link Email';
 		emailBtn.disabled = false;
 		emailImg.src = 'img/partners/emails.png';

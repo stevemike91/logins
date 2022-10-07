@@ -252,7 +252,7 @@ auth.onAuthStateChanged(user => {
 			View Profile
 			<img src="img/partners/anonymous.png">
 		`;
-		pros.innerHTML = `Link an <span>email / phone number</span> to get bank logs sent via <span>mail / sms</span>`;
+		pros.innerHTML = `Pro tip: Link an <span>email / phone number</span> to get bank logs sent via <span>mail / sms</span>`;
 		emailBtn.innerText = 'Link Email';
 		emailBtn.disabled = false;
 		emailImg.src = 'img/partners/emails.png';
@@ -283,7 +283,7 @@ auth.onAuthStateChanged(user => {
 			View Profile
 			<img src="img/partners/anonymous.png">
 		`;
-		pros.innerHTML = `Link an <span>email / phone number</span> to get bank logs sent via <span>mail / sms</span>`;
+		pros.innerHTML = `Pro tip: Link an <span>email / phone number</span> to get bank logs sent via <span>mail / sms</span>`;
 		emailBtn.innerText = 'Link Email';
 		emailBtn.disabled = false;
 		emailImg.src = 'img/partners/emails.png';
