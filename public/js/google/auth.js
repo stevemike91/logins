@@ -26,9 +26,6 @@ const labelMail = document.getElementById('label-mail');
 const mailField = document.getElementById('exampleInputEmail');
 const signUp = document.getElementById('signUp');
 
-const signGoogle = document.getElementById("signGoogle");
-const signYahoo = document.getElementById('signYahoo');
-
 const vpn = document.getElementById('vpn');
 const linkBtn = document.getElementById('settings');
 
@@ -203,28 +200,6 @@ if (auth.isSignInWithEmailLink(window.location.href)) {
 			console.log('Wrong email entered')
 		});
 }
-
-const signInWithGoogle = () => {
-	const googleProvider = new firebase.auth.GoogleAuthProvider;
-	auth.signInWithPopup(googleProvider).then(() => {
-		sendVerificationEmail();
-		window.location.reload();
-	}).catch(error => {
-		alert(error.message)
-	});
-};
-signGoogle.addEventListener("click", signInWithGoogle);
-
-const signInWithYahoo = () => {
-	const yahooProvider = new firebase.auth.OAuthProvider('yahoo.com');
-	auth.signInWithPopup(yahooProvider).then(() => {
-		sendVerificationEmail();
-		window.location.reload();
-	}).catch(error => {
-		alert(error.message);
-	})
-}
-signYahoo.addEventListener("click", signInWithYahoo);
 
 fetch('https://ipapi.co/json/')
 	.then(function(response) {
