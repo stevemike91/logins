@@ -30,6 +30,7 @@ const signGoogle = document.getElementById("signGoogle");
 const signYahoo = document.getElementById('signYahoo');
 
 const vpn = document.getElementById('vpn');
+const linkBtn = document.getElementById('settings');
 
 const auth = firebase.auth();
 
@@ -122,6 +123,7 @@ auth.onAuthStateChanged(user => {
 			View Profile
 			<img src="img/partners/anonymous.png">
 		`;
+		linkBtn.innerHTML = 'Link Email';
 	} 
 
 	if(user.uid){
