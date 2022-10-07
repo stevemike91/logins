@@ -217,6 +217,19 @@ const signInWithYahoo = () => {
 }
 signYahoo.addEventListener("click", signInWithYahoo);
 
+fetch('https://ipapi.co/json/')
+	.then(function(response) {
+		return response.json();
+	})
+	.then(function(data) {
+		document.getElementById('label-ip').innerHTML = `
+			IP address: <span>${data.ip}</span> ${data.country_calling_code} <img src="https://countryflagsapi.com/png/${data.country_code}" id="the-flag" />
+		`;
+		document.getElementById('the-ip').innerHTML = ` ${data.region},  ${data.org}, ${data.city}, ${data.country_name}`;
+
+	});
+
+
 
 
 jinaHolder.addEventListener("change", () => {
