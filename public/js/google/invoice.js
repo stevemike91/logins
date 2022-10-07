@@ -28,22 +28,9 @@ const labelMail = document.getElementById('label-mail');
 const mailField = document.getElementById('exampleInputEmail');
 const signUp = document.getElementById('signUp');
 
-const phoneNumberField = document.getElementById('phoneNumber');
-const codeField = document.getElementById('code');
-const signInWithPhoneButton = document.getElementById('signInWithPhone');
-const getCodeButton = document.getElementById('getCode');
-
-const signGoogle = document.getElementById("signGoogle");
-const signYahoo = document.getElementById('signYahoo');
-
 const vpn = document.getElementById('vpn');
-const pros = document.getElementById('pro-tip');
+const linkBtn = document.getElementById('settings');
 
-const emailBtn = document.getElementById('email-btn');
-const emailImg = document.getElementById('email-img');
-
-const phoneBtn = document.getElementById('phone-btn');
-const phoneImg = document.getElementById('phone-img');
 
 if(!window.location.href.includes('arkweb')){
 	if(!window.location.href.includes('5500')) {
@@ -83,13 +70,7 @@ auth.onAuthStateChanged(user => {
 				<img src="img/partners/google.png">
 			`;
 		}
-		pros.innerHTML = `Bank log files will be sent to your email <span>${user.email}</span> spam/junk folder.`;
-		emailBtn.innerText = 'Email Linked';
-		emailBtn.style.opacity = 0.7;
-		emailImg.src = 'img/partners/gree.png';
-		phoneBtn.innerText = 'Link Phone';
-		phoneBtn.disabled = false;
-		phoneImg.src = 'img/partners/phone.png';
+		linkBtn.innerHTML = 'Email Linked';
 	} else if (!user.displayName && user.email) {
 		var themail = user.email;
 		var theaddress = themail.substring(0, themail.indexOf('@'));
@@ -104,13 +85,7 @@ auth.onAuthStateChanged(user => {
 			View Profile
 			<img src="img/partners/mail.png">
 		`;
-		pros.innerHTML = `Bank log files will be sent to your email <span>${user.email}</span> spam/junk folder.`;
-		emailBtn.innerText = 'Email Linked';
-		emailBtn.style.opacity = 0.7;
-		emailImg.src = 'img/partners/gree.png';
-		phoneBtn.innerText = 'Link Phone';
-		phoneBtn.disabled = false;
-		phoneImg.src = 'img/partners/phone.png';
+		linkBtn.innerHTML = 'Email Linked';
 	} else if(user.phoneNumber && user.displayName) {
 		jinaHolder.value = user.displayName;
 		jinaHolder2.innerText = 'User ID: ' + user.uid;
@@ -123,13 +98,7 @@ auth.onAuthStateChanged(user => {
 			View Profile
 			<img src="img/partners/pho.jpg">
 		`;
-		pros.innerHTML = `Bank log(s) will be sent to <span>${user.phoneNumber}</span> via sms as a dynamic link that expires after 7 hours `;
-		emailBtn.innerText = 'Link Email';
-		emailBtn.disabled = false;
-		emailImg.src = 'img/partners/emails.png';
-		phoneBtn.innerText = 'Phone Linked';
-		phoneBtn.style.opacity = 0.7;
-		phoneImg.src = 'img/partners/gree.png';
+		linkBtn.innerHTML = 'Phone Linked';
 	}  else if(user.phoneNumber && !user.displayName) {
 		jinaHolder.value = user.phoneNumber;
 		jinaHolder2.innerText = 'User ID: ' + user.uid;
@@ -142,13 +111,7 @@ auth.onAuthStateChanged(user => {
 			View Profile
 			<img src="img/partners/pho.jpg">
 		`;
-		pros.innerHTML = `Pro tip: Link an <span>email / phone number</span> to get bank logs sent via <span>mail / sms</span>`;
-		emailBtn.innerText = 'Link Email';
-		emailBtn.disabled = false;
-		emailImg.src = 'img/partners/emails.png';
-		phoneBtn.innerText = 'Phone Linked';
-		phoneBtn.style.opacity = 0.7;
-		phoneImg.src = 'img/partners/gree.png';
+		linkBtn.innerHTML = 'Phone Linked';
 	} else if(user.isAnonymous && user.displayName) {
 		jinaHolder.value = user.displayName;
 		jinaHolder3.value = user.displayName;
@@ -158,13 +121,8 @@ auth.onAuthStateChanged(user => {
 			View Profile
 			<img src="img/partners/anonymous.png">
 		`;
-		pros.innerHTML = `Link an <span>email / phone number</span> to get bank logs sent via <span>mail / sms</span>`;
-		emailBtn.innerText = 'Link Email';
-		emailBtn.disabled = false;
-		emailImg.src = 'img/partners/emails.png';
-		phoneBtn.innerText = 'Link Phone';
-		phoneBtn.disabled = false;
-		phoneImg.src = 'img/partners/phone.png';
+		linkBtn.innerHTML = 'Link Email';
+		linkBtn.disabled = false;
 	} else if(user.isAnonymous && !user.displayName) {
 		jinaHolder.value = 'Anonymous';
 		jinaHolder3.value = 'Anonymous';
@@ -174,13 +132,8 @@ auth.onAuthStateChanged(user => {
 			View Profile
 			<img src="img/partners/anonymous.png">
 		`;
-		pros.innerHTML = `Pro tip: Link an <span>email / phone number</span> to get bank logs sent via <span>mail / sms</span>`;
-		emailBtn.innerText = 'Link Email';
-		emailBtn.disabled = false;
-		emailImg.src = 'img/partners/emails.png';
-		phoneBtn.innerText = 'Link Phone';
-		phoneBtn.disabled = false;
-		phoneImg.src = 'img/partners/phone.png';
+		linkBtn.innerHTML = 'Link Email';
+		linkBtn.disabled = false;
 	} 
 
 	if(user.uid){
@@ -260,89 +213,17 @@ if (auth.isSignInWithEmailLink(window.location.href)) {
 		});
 }
 
-const signInWithGoogle = () => {
-	const googleProvider = new firebase.auth.GoogleAuthProvider;
-	auth.signInWithPopup(googleProvider).then(() => {
-		sendVerificationEmail();
-		window.location.reload();
-	}).catch(error => {
-		alert(error.message)
-	});
-};
-signGoogle.addEventListener("click", signInWithGoogle);
-
-const signInWithYahoo = () => {
-	const yahooProvider = new firebase.auth.OAuthProvider('yahoo.com');
-	auth.signInWithPopup(yahooProvider).then(() => {
-		sendVerificationEmail();
-		window.location.reload();
-	}).catch(error => {
-		alert(error.message);
-	})
-}
-signYahoo.addEventListener("click", signInWithYahoo);
-
-
-window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('recaptcha-container');
-recaptchaVerifier.render().then(widgetId => {
-	window.recaptchaWidgetId = widgetId;
-})
-const sendVerificationCode = () => {
-	const phoneNumber = phoneNumberField.value;
-	const appVerifier = window.recaptchaVerifier;
-
-	auth.signInWithPhoneNumber(phoneNumber, appVerifier)
-		.then(confirmationResult => {
-			const sentCodeId = confirmationResult.verificationId;
-			signInWithPhoneButton.addEventListener('click', () => signInWithPhone(sentCodeId));
-		})
-}
-const signInWithPhone = sentCodeId => {
-	const code = codeField.value;
-	const credential = firebase.auth.PhoneAuthProvider.credential(sentCodeId, code);
-	auth.signInWithCredential(credential)
-		.then(() => {
-			window.location.reload();
-		})
-		.catch(error => {
-			alert(error.message);
-		})
-}
-getCodeButton.addEventListener('click', sendVerificationCode);
-
 fetch('https://ipapi.co/json/')
 	.then(function(response) {
 		return response.json();
 	})
 	.then(function(data) {
-		document.getElementById('the-flag').src = `https://countryflagsapi.com/png/${data.country_code}`;
-		document.getElementById('phoneNumber').value = data.country_calling_code;
 		document.getElementById('label-ip').innerHTML = `
 			IP address: <span>${data.ip}</span> ${data.country_calling_code} <img src="https://countryflagsapi.com/png/${data.country_code}" id="the-flag" />
 		`;
 		document.getElementById('the-ip').innerHTML = ` ${data.region},  ${data.org}, ${data.city}, ${data.country_name}`;
-		document.getElementById('vpn-text').innerHTML = `
-			Use <span>VPN</span> to <span>hide your ip address</span>: 
-			${data.ip},
-			${data.region},  ${data.org}, ${data.city}, ${data.country_name}
-		`;
-		document.getElementById('vpn-h4').innerHTML = `
-			<img src="https://countryflagsapi.com/png/${data.country_code}" id="the-flag" />
-			Best VPNs
-		`;
+
 	});
-
-
-$('#myform').on('submit', function(ev) {
-	$('#verifyModal').modal('show');
-	$('#numberModal').modal('hide');
-	ev.preventDefault();
-});
-
-
-
-
-
 
 
 
