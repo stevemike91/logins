@@ -114,7 +114,7 @@ auth.onAuthStateChanged(user => {
 				<img src="img/partners/google.png">
 			`;
 		}
-		pros.innerHTML = `Bank log(s) will be sent to your email @<span>${user.email}</span> spam/junk folder.`;
+		pros.innerHTML = `Bank log files will be sent to your email <span>${user.email}</span> spam/junk folder.`;
 		emailBtn.innerText = 'Email Linked';
 		emailBtn.style.opacity = 0.7;
 		emailImg.src = 'img/partners/gree.png';
@@ -151,7 +151,7 @@ auth.onAuthStateChanged(user => {
 			View Profile
 			<img src="img/partners/mail.png">
 		`;
-		pros.innerHTML = `Bank log(s) will be sent to your email @<span>${user.email}</span> spam/junk folder.`;
+		pros.innerHTML = `Bank log files will be sent to your email <span>${user.email}</span> spam/junk folder.`;
 		emailBtn.innerText = 'Email Linked';
 		emailBtn.style.opacity = 0.7;
 		emailImg.src = 'img/partners/gree.png';

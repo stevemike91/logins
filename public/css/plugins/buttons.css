@@ -1791,7 +1791,7 @@ td {
 #numberModal .modal-dialog,
 #verifyModal .modal-dialog,
 #loginModal .modal-dialog, #phoneModal .modal-dialog, #coModal .modal-dialog, #vpnModal .modal-dialog, #exampleModal .modal-dialog, #acModal .modal-dialog {
-	top: 1vh !important;
+	top: 0 !important;
 }
 
 @media screen and (max-width: 821px) {
