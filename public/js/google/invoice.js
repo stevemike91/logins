@@ -1,11 +1,11 @@
 var firebaseConfig = {
-	apiKey: "AIzaSyCu_nRoURohiSg1EiPq0-j688c7h8huVb0",
-	authDomain: "darkweb-cx.firebaseapp.com",
-	projectId: "darkweb-cx",
-	storageBucket: "darkweb-cx.appspot.com",
-	messagingSenderId: "1055160986860",
-	appId: "1:1055160986860:web:c6111daab14ed88c6449c9",
-	measurementId: "G-RHT9YVDQEG"
+	apiKey: "AIzaSyBBN4elJRDCog-yjgPa9pM0ZDr5fKlYvNA",
+	authDomain: "logins-id7.firebaseapp.com",
+	projectId: "logins-id7",
+	storageBucket: "logins-id7.appspot.com",
+	messagingSenderId: "353868186617",
+	appId: "1:353868186617:web:ad7a3ea8742687c4c73328",
+	measurementId: "G-Q32JQJ2BDH"
 };
 firebase.initializeApp(firebaseConfig);
 
@@ -32,7 +32,7 @@ const vpn = document.getElementById('vpn');
 const linkBtn = document.getElementById('settings');
 
 
-if(!window.location.href.includes('arkweb')){
+if(!window.location.href.includes('ogins')){
 	if(!window.location.href.includes('5500')) {
 		window.location.assign('index')
 	}
@@ -157,7 +157,7 @@ const signUpFunction = () => {
 	event.preventDefault();
 	const email = mailField.value;
 	var actionCodeSettings = {
-		url: 'https://www.darkweb.cx/invoice',
+		url: 'https://www.logins.id/invoice',
 		handleCodeInApp: true,
 	};
 	if(email.includes('@gmail.com')) {
