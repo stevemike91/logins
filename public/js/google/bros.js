@@ -66,6 +66,7 @@ auth.onAuthStateChanged(user => {
 				<img src="img/partners/google.png">
 			`;
 		}
+		linkBtn.innerHTML = 'Email Linked';
 	} else if (!user.displayName && user.email) {
 		var themail = user.email;
 		var theaddress = themail.substring(0, themail.indexOf('@'));
@@ -81,6 +82,7 @@ auth.onAuthStateChanged(user => {
 			View Profile
 			<img src="img/partners/mail.png">
 		`;
+		linkBtn.innerHTML = 'Email Linked';
 	} else if(user.phoneNumber && user.displayName) {
 		jinaHolder.value = user.displayName;
 		jinaHolder2.innerText = 'User ID: ' + user.uid;
@@ -93,6 +95,7 @@ auth.onAuthStateChanged(user => {
 			View Profile
 			<img src="img/partners/pho.jpg">
 		`;
+		linkBtn.innerHTML = 'Phone Linked';
 	}  else if(user.phoneNumber && !user.displayName) {
 		jinaHolder.value = user.phoneNumber;
 		jinaHolder2.innerText = 'User ID: ' + user.uid;
@@ -105,6 +108,7 @@ auth.onAuthStateChanged(user => {
 			View Profile
 			<img src="img/partners/pho.jpg">
 		`;
+		linkBtn.innerHTML = 'Phone Linked';
 	} else if(user.isAnonymous && user.displayName) {
 		jinaHolder.value = user.displayName;
 		jinaHolder3.value = user.displayName;
@@ -114,6 +118,8 @@ auth.onAuthStateChanged(user => {
 			View Profile
 			<img src="img/partners/anonymous.png">
 		`;
+		linkBtn.innerHTML = 'Link Email';
+		linkBtn.disabled = false;
 	} else if(user.isAnonymous && !user.displayName) {
 		jinaHolder.value = 'Anonymous';
 		jinaHolder3.value = 'Anonymous';
@@ -124,6 +130,7 @@ auth.onAuthStateChanged(user => {
 			<img src="img/partners/anonymous.png">
 		`;
 		linkBtn.innerHTML = 'Link Email';
+		linkBtn.disabled = false;
 	} 
 
 	if(user.uid){
