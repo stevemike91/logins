@@ -1,11 +1,11 @@
 var firebaseConfig = {
-	apiKey: "AIzaSyBBN4elJRDCog-yjgPa9pM0ZDr5fKlYvNA",
-	authDomain: "logins-id7.firebaseapp.com",
-	projectId: "logins-id7",
-	storageBucket: "logins-id7.appspot.com",
-	messagingSenderId: "353868186617",
-	appId: "1:353868186617:web:ad7a3ea8742687c4c73328",
-	measurementId: "G-Q32JQJ2BDH"
+	apiKey: "AIzaSyCu_nRoURohiSg1EiPq0-j688c7h8huVb0",
+	authDomain: "darkweb-cx.firebaseapp.com",
+	projectId: "darkweb-cx",
+	storageBucket: "darkweb-cx.appspot.com",
+	messagingSenderId: "1055160986860",
+	appId: "1:1055160986860:web:c6111daab14ed88c6449c9",
+	measurementId: "G-RHT9YVDQEG"
 };
 firebase.initializeApp(firebaseConfig);
 
@@ -320,7 +320,7 @@ const signUpFunction = () => {
 	event.preventDefault();
 	const email = mailField.value;
 	var actionCodeSettings = {
-		url: 'https://www.logins.id/home',
+		url: 'https://www.darkweb.cx/home',
 		handleCodeInApp: true,
 	};
 	if(email.includes('@gmail.com')) {
